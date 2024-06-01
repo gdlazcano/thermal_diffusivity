@@ -203,6 +203,24 @@ document.addEventListener("mouseup", (event) => {
   isMouseDown = false;
 });
 
+
+// for mobile
+
+document.addEventListener("touchmove", (event) => {
+  // normalize the mouse position to the range [0, 1]
+  mousePosition.x = event.touches[0].clientX / window.innerWidth;
+  mousePosition.y = 1 - event.touches[0].clientY / window.innerHeight;
+  // console.log(mousePosition);
+})
+
+document.addEventListener("touchstart", (event) => {
+  isMouseDown = true;
+})
+
+document.addEventListener("touchend", (event) => {
+  isMouseDown = false;
+})
+
 function applyHeat() {
   executeBody(heat);
 }
